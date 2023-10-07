@@ -1,6 +1,6 @@
 package hzu.world.yummyapiclientsdk;
 
-import hzu.world.yummyapiclientsdk.client.YummyApiClient;
+import hzu.world.yummyapiclientsdk.entity.YummyLogger;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -13,14 +13,17 @@ import org.springframework.context.annotation.Configuration;
 // 配置类
 @Configuration
 // 设置application配置文件配置信息前缀
-@ConfigurationProperties("yummyapi.client")
-public class YummyApiClientConfig {
+@ConfigurationProperties(prefix = "yummyapi.client.logging")
+public class YummyLoggingConfig {
 
-    private String name;
+    private String logLevel;
+    private String logFormat;
 
     @Bean
-    public YummyApiClient yummyApiClient(){
-        System.out.println(name);
-        return new YummyApiClient();
+    public YummyLogger yummyApiLogger() {
+        YummyLogger logger = new YummyLogger();
+        logger.setLevel(logLevel);
+        logger.setFormat(logFormat);
+        return logger;
     }
 }

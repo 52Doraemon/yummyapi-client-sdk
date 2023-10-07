@@ -1,2 +1,6 @@
-# spring boot stater ???????
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=hzu.world.yummyapiclientsdk.YummyApiClientConfig
+# spring boot stater
+# 启动阶段: 在Spring Boot应用启动阶段，SpringApplication类会加载spring.factories文件。
+# 读取与解析: 读取文件内容，解析其中列出的类，并尝试将它们初始化为Spring Bean。
+# 条件检查: 对于每一个候选的自动配置类，Spring Boot都会检查任何与其相关联的条件（比如@ConditionalOnClass，@ConditionalOnBean等），以决定是否应用这个配置。
+# 注册Bean: 一旦条件检查通过，相应的bean就会被创建并添加到Spring上下文（ApplicationContext）中。
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=hzu.world.yummyapiclientsdk.YummyClientConfig
